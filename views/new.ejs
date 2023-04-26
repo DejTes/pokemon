@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Pokemon</title>
+</head>
+<body>
+    <% let maxId = 0 
+        pokemon.forEach(function(current){
+            if(current.id>maxId){
+                maxId=current.id
+            }
+        })
+        maxId = parseInt(maxId)
+    %>
+    <h1>New Pokemon?</h1>
+    <form action="/new" method="POST">
+        Name: <input type="text" name="name"/><br/>
+        Type: <input type="text" name="type" multiple/>
+              <input type="text" name="type" multiple/><br/>
+        Id: <input type="number" name="id" value="<%=maxId + 1  %>"/><br/>
+        Img: <input type="text" name="img"><br/>
+        HP: <input type="text" name="stats.hp" value="maximum 255"><br/>
+        ATK: <input type="text" name="stats.attack" value="maximum 255"><br/>
+        DEF: <input type="text" name="stats.defense" value="maximum 255"><br/>
+        SPD: <input type="text" name="stats.speed" value="maximum 255"><br/>
+        <input type="submit" value="Add to Pokedex">
+    </form>
+    <h2>your pokedex have: <%= maxId %></h2>
+    <a href="/pokedex"><button>Back to Pokedex</button></a>
+</body>
+</html>

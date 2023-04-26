@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Data</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="card"
+    <% const healthPercentage = (pokemon.stats.hp / 255) * 100;
+       const atkPercentage = (pokemon.stats.attack / 255) * 100;
+       const defPercentage = (pokemon.stats.defense / 255) * 100;
+       const spdPercentage = (pokemon.stats.speed / 255) * 100; %>
+    
+    <h1>#<%= pokemon.id %></h1>
+    <img src="<%= pokemon.img %>">
+    <h1><%= pokemon.name %></h1>
+    <h1>Type:</h1>
+    <div class="type">
+        <% for (let i = 0; i < pokemon.type.length; i++) { %>
+            <div class="<%= pokemon.type[i] %>"><%= pokemon.type[i] %></div>
+        <% } %>
+    </div>
+    <div class="barInfo">
+        <h2>HP:</h2>
+        <div class="bar">
+            <div class="healthbardone" style="width: <%= healthPercentage %>%;"></div>
+            <span class="bartext"><%= pokemon.stats.hp %>/255</span>
+        </div>
+    </div>
+    <div class="barInfo">
+        <h2>ATK:</h2>
+        <div class="bar">
+            <div class="attackbardone" style="width: <%= atkPercentage %>%;"></div>
+            <span class="bartext"><%= pokemon.stats.attack %>/255</span>
+        </div>
+    </div>
+    <div class="barInfo">
+        <h2>DEF:</h2>
+        <div class="bar">
+            <div class="defbardone" style="width: <%= defPercentage %>%;"></div>
+            <span class="bartext"><%= pokemon.stats.defense %>/255</span>
+        </div>
+    </div>
+    <div class="barInfo">
+        <h2>SPD:</h2>
+        <div class="bar">
+            <div class="spdbardone" style="width: <%= spdPercentage %>%;"></div>
+            <span class="bartext"><%= pokemon.stats.speed %>/255</span>
+        </div>
+    </div>
+    <button><a href="/pokedex">Back To Main Pokedex</a></button>
+    </div>
+</body>
+</html>

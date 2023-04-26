@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="show.css">
+</head>
+<body>
+    <div class="pokedex">
+        <div class="leftBox"><a href="/new"><button>Add Pokemon</button></a></div>
+        <div class="pokemon-container">
+           
+            <%for(let i = 0; i<pokemon.length; i++){ %>
+                <div class="pokemon-card">
+                    
+                    <div class="pokemonProfile">
+                        <div class="pokemonImg">
+                            <div class="pokemonName">
+                                <h3><%= pokemon[i].name %></h3>
+                            </div>
+                            <a href="/pokemon/<%= pokemon[i]._id %>">
+                                <img src="<%= pokemon[i].img%>">
+                            </a>
+                        </div>
+                      
+                        <div class="edit">
+                            <a href="/pokemon/<%=pokemon[i]._id %>/edit"><button>Edit</button></a>
+                            <form action="/delete/<%=pokemon[i]._id%>?_method=DELETE" method="POST">
+                                <input class='delete' type="submit" value="Delete"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        </div>
+    </div>
+</body>
+</html>

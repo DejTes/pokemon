@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 const express = require('express')
-const port = 3000
 const app = express()
 const seedData = require('./models/pokemon.js')
 const Pokemon = require('./models/pokemon.js')
 const methodOverride = require('method-override')
 require('dotenv').config()
 
+const port = process.env.PORT || 3000;
 
     app.use(express.urlencoded({extended:true}))
     app.use(express.static('public'))
@@ -90,8 +90,9 @@ app.put("/edit/:id",(req,res)=>{
 
 mongoose.set('strictQuery',false)
 mongoose.connect(process.env.MONGODB,()=>{
+   
         console.log('connection to database successful')
     })
 app.listen(port,()=>{
-        console.log('litsening on port 3000')
+    console.log(`Listening on port ${port}`);
     })

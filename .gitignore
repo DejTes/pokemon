@@ -6,7 +6,6 @@ bin-debug/
 bin-release/
 [Oo]bj/
 [Bb]in/
-public/
 .vscode/
 # Other files and folders
 .settings/

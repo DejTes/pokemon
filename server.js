@@ -38,7 +38,7 @@ app.get('/pokemon/:id',(req,res)=>{
     })
 })
 
-app.get('/pokedex',(req,res)=>{
+app.get('/',(req,res)=>{
     Pokemon.find({},(err,allPokemon)=>{
         if(err){
             console.log(err)
